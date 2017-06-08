@@ -1,0 +1,28 @@
+/*
+*Estilo css de pantallas de cliente 
+*/
+html,body{
+
+	margin: 0px;
+	padding: 0px;
+	
+}
+.container{background-color: gray;}
+/******BARRA DE NAVEGACION******/
+.breadcrumb,.navbar-default{margin: 0px;z-index: 10; opacity: 0.8;}
+.breadcrumb{background-color: white;}
+.breadcrumb a{list-style: none; color:#1C1C1C;}
+.navbar-default{background-color:#1C1C1C;border-style: none;}
+
+.col-md-8{padding: 10px;}
+.tabla{width:100%;text-align:center;margin-top: 50px;}
+.formulario{text-align: center;}
+#busqueda{margin-bottom: 15px;}
+#spanSearch{padding: 0;}
+.fa-search{width: 100%; height: 118%;}
+td{
+	padding: 3px;
+}
+th{text-align: center;}
+/*FOOTER*/
+#footer{text-align: center;margin-bottom: 25px;}
