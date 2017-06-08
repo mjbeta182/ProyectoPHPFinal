@@ -1,6 +1,7 @@
 <!DOCTYPE>
 <html lang="es">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script>url="rptLibros.php"</script>
 <?php
 session_start();
 if ((isset($_SESSION['usuario'])) && (isset($_SESSION['persona'])) && (isset($_SESSION['id'])))
@@ -118,7 +119,7 @@ $PantallaCliente->barraMenu();
             <button type="submit" class="btn btn-warning" onclick='LimpiarLibro();'>Nuevo</button>
             <button id="btnGuardar" name="btnGuardar" type="submit" class="btn btn-warning" onclick='return actualizarItem();'>Guardar</button>
             <input type="hidden" id="accion" name="accion" value="<?=$accion?>" >
-            <button type="submit" class="btn btn-warning">Imprimir Reporte</button>
+            <button type="submit" class="btn btn-warning" onclick="javascript:frmImprimir(url);">Imprimir Reporte</button>
             <button type="submit" class="btn btn-warning">Cancelar</button>
           </form>
         </div><!--fin de col-md-4-->

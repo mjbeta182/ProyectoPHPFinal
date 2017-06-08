@@ -1,0 +1,42 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* Estilos para el Cuerpo de la página */
+body{
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size:10px;
+	margin-top:0px;
+}
+
+/* Etilos para formato de texto y Objetos*/
+p{
+	margin:0px; 
+	font-weight:bold;
+}
+
+a{text-decoration:none;}
+
+
+img{
+	vertical-align:middle;
+}
+
+table{
+	/*width:auto;*/
+	margin-left:auto;
+	margin-right:auto;
+}
+
+th{
+	font-size:10px; 
+	padding-right:2px;padding-left:2px;
+	background-color:#CCC;
+}
+
+table tr:nth-child(odd) {background-color: #CCC;}
+
+table tr:nth-child(even) {background-color: white;}
+
+td{ margin:10px;}
+
+.table-font{ font-size:10px;}

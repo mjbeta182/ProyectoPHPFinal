@@ -1,5 +1,6 @@
 <!DOCTYPE>
 <html lang="en">
+    <script>url="rptPedidoEmpleados.php"</script>
 <?php
 session_start();
 if ((isset($_SESSION['usuario'])) && (isset($_SESSION['persona'])) && (isset($_SESSION['id'])))
@@ -92,7 +93,7 @@ date_default_timezone_set("America/El_Salvador");
           </form>    
         </div><!--fin de col-md-4-->
             <div class="col-md-6">  
-             <button type="submit" class="btn btn-warning" style="margin-top: 10%;" >Imprimir Reporte</button>
+             <button type="submit" class="btn btn-warning" style="margin-top: 10%;" onclick="javascript:frmImprimir(url);">Imprimir Reporte</button>
             <table border="1" class="tabla" style="font-size:12px;">
               <?php mostrarDetalle($bdConexion,$hCodigo,$txtNombre,$txtCantidad,$txtFecha,$txtEntrega,$hora,$slcEditorial,$slcLibro); ?>
             </table>

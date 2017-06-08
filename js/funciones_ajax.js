@@ -149,10 +149,10 @@ function LimpiarAutor()
    
 }
 //***************************************************************************************************
-function frmImprimir()
+function frmImprimir(url)
 {
     var id	=	$('#hCodigo').val();
-	window.open('../reportes/rptEmpleados.php?hCodigo='+id,'Vista');
+	window.open('../reportes/'+url+'?hCodigo='+id,'Vista');
 }
 //***************************************************************************************************
 //function existeFecha (fecha) {
