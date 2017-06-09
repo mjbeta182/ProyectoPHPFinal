@@ -7,10 +7,25 @@ date_default_timezone_set("America/El_Salvador");
 $hCodigo	=	(isset($_REQUEST['hCodigo'])?$_REQUEST['hCodigo']:null);
 
 $sql = "select tbldetpedido.idPedido, tbllibro.titulo, tbldetpedido.cantidad,tbllibro.precioCosto, tbldetpedido.total from tbldetpedido
-inner join tbllibro on tbldetpedido.idLibro=tbllibro.idLibro";
+inner join tbllibro on tbldetpedido.idLibro=tbllibro.idLibro and tbldetpedido.idPedido = $hCodigo";
 
 	$rsDetalles = $bdConexion->ejecutarSQL($sql);
+        
 ?>
+<!--Mostrar nombre del empleado en factura-->
+<?php
+session_start();
+if ((isset($_SESSION['usuario'])) && (isset($_SESSION['persona'])) && (isset($_SESSION['id'])))
+{
+  $idusuario = $_SESSION['id'];
+  $usuario = $_SESSION['persona'];
+  $dir = 'formularios/perfil.php';
+  $num = $_SESSION['administrador'];
+}else{
+  $usuario = 'Acceder Registrarse';
+  $dir = 'index.php';
+}
+?> <!--Fin de mostrar empleado-->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -36,6 +51,7 @@ inner join tbllibro on tbldetpedido.idLibro=tbllibro.idLibro";
 	<tr>
 		<td colspan="2">
 			<div style="float: left;">
+                            Empleado: <?=$usuario?><br>
                             Generado:<?=date("d/M/Y")?><br>
 			</div>
                         <div style="float: right;">

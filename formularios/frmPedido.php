@@ -1,6 +1,6 @@
 <!DOCTYPE>
 <html lang="en">
-    <script>url="rptPedidoEmpleados.php"</script>
+    <script>url="rptPedidosEmpleados.php"</script>
 <?php
 session_start();
 if ((isset($_SESSION['usuario'])) && (isset($_SESSION['persona'])) && (isset($_SESSION['id'])))
@@ -45,17 +45,17 @@ date_default_timezone_set("America/El_Salvador");
              <label class="sr-only" for="user">Realiza el pedido:</label>
             <div class="input-group">
               <span class="input-group-addon"><i class="  fa fa-edit"></i></span>
-              <input type="text" class="form-control" id="btnCraer" name="txtNombre" placeholder="" value="<?=$usuario?>" required="true">
-              <input type="hidden" class="form-control" id="txtidusuario" name="txtidusuario" value="<?=$idusuario?>">
+              <input type="text" class="form-control" id="btnCraer" name="txtNombre" placeholder="" value="<?=$usuario?>" required="true" readonly="true">
+              <input type="hidden" class="form-control" id="txtidusuario" name="txtidusuario" value="<?=$idusuario?>" readonly="true">
             </div>
             <br>
               <label class="sr-only" for="user">Hora:</label>
             <div class="input-group">
               <span class="input-group-addon"><i class=" fa fa-clock-o"></i></span>
-              <input type="text" class="form-control" id="txtHora" name="txtHora" placeholder="Hora" value="<?php  $time = time(); echo date("h:i:s", $time) ?>" required="true">
+              <input type="text" class="form-control" id="txtHora" name="txtHora" placeholder="Hora" value="<?php  $time = time(); echo date("h:i:s", $time) ?>" required="true" readonly="true">
             </div>
               <br>
-              <input type="hidden" class="form-control" id="txtEntrega" name="txtEntrega" placeholder="entrega" value="<?= date("2017-06-30"); ?>" required="true">   
+              <input type="hidden" class="form-control" id="txtEntrega" name="txtEntrega" placeholder="entrega" value="<?= date("2017-06-30"); ?>" required="true" readonly="true">   
             <br>
             <label class="sr-only" for="user"  >Agregar Editorial</label>
             <div class="input-group"style="width:100%;" >
