@@ -30,7 +30,7 @@ table{
 th{
 	font-size:10px; 
 	padding-right:2px;padding-left:2px;
-	background-color:#CCC;
+	background-color:grey;
 }
 
 table tr:nth-child(odd) {background-color: #CCC;}
