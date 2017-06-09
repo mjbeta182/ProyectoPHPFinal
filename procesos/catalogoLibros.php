@@ -1,26 +1,6 @@
 
 <?php
 include('../clases/conexion.php');
-
-if (isset($_REQUEST['btnAgregar']) and $_REQUEST['btnAgregar']=='agregar')
-{
-		print "INSERTAR";
-    
-//		$tabla		= "tblpedido";
-//		$campos		= "idUsuario,fechaPedido,fechaEntrega,horaPedido,total";
-//		$valores	= "'$txtTipo'";
-//		$bdConexion->insertarDB($tabla,$campos,$valores);
-//                $ultimoPedido = $bdConexion->retornarId();
-//                $_SESSION['ultimoPedido'] = $ultimoPedido;
-//		if ($ultimoPedido >0)
-//		{
-//		$tabla		= "tbldetpedido";
-//		$campos		= "idPedido,idLibro,cantidad,total,eliminado,estado";
-//		$condicion	= "$idusuario,$";
-//		$bdConexion->actualizarDB($tabla,$campos,$condicion);
-//		}
-}//Fin de boton Guardar
-
 function catalogo($bdConexion,$categoria)
 {
         if($categoria>0)
@@ -76,9 +56,9 @@ function catalogo($bdConexion,$categoria)
     			<p>".$fila['descripcion']."</p>
                         
     		</div> 
-    		<a class='agregar' href='libros.php?&btnAgregar=agregar '>Agregar		
+                <a class='agregar' href='perfil.php?&btnAgregar=agregar&idLibro=".$fila['idLibro']."'>Agregar		
 		</a>
-   			</div>
+   		</div>
 		</article>		
 		</div>
 	";

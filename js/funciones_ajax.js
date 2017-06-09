@@ -149,6 +149,18 @@ function LimpiarAutor()
    
 }
 //***************************************************************************************************
+function LimpiarPedido()
+{
+    
+   accion           =   $('#accion').val("insert");
+   codigo           =   $('#hCodigo').val(null);
+   slcEditorial     =   $('#slcEditorial').val(null);
+   txtNombre        =   $('#txtNombre').val(null);
+   fechaPedido      =   $('#txtFecha').val(null);
+   hora             =   $('#txtHora').val(null);
+   cant             =   $('#txtCantidad').val(null);
+}
+//***************************************************************************************************
 function frmImprimir(url)
 {
     var id	=	$('#hCodigo').val();

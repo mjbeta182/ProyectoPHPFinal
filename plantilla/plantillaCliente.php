@@ -89,31 +89,24 @@
 									</li>
 	
 									<li>
-										<a href="#">Contactanos</a>
+										<a href="#contactanos">Contactanos</a>
 									</li>
 									<li class="dropdown">
 										 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Otros Recursos<strong class="caret"></strong></a>
 										<ul class="dropdown-menu">
 											<li>
-												<a href="#">Action</a>
+												<a href="http://www.binaes.gob.sv/" target="_blank" >Biblioteca Nacional</a>
 											</li>
 											<li>
-												<a href="#">Another action</a>
+												<a href="http://www.libroslaceiba.com/" target="_blank">Libros la Ceiba</a>
 											</li>
 											<li>
-												<a href="#">Something else here</a>
+												<a href="http://www.book.com.mx/inicio" target="_blank">Book.Com</a>
 											</li>
 										</ul>
 									</li>
 								</ul>
-								<form class="navbar-form navbar-left" role="search">
-									<div class="form-group">
-										<input type="text" class="form-control" style="width:400px;">
-									</div> 
-									<button type="submit" class="btn btn-default">
-										Buscar
-									</button>
-								</form>
+							
 							</div>
 						</nav>
 							</div>
@@ -198,7 +191,7 @@
 
 		</div>
 		<div class="col-md-4">
-			<form role="form">
+			<form role="form"><a name="contactanos" ></a>
 				<div class="form-group">
 					<h4 class="text-center text-muted">
 					<strong>CONTACTANOS</strong>

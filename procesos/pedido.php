@@ -65,10 +65,23 @@ if (isset($_REQUEST['accion']) and $_REQUEST['accion']=='remove')
                 $eliminar = 0;
 		unset($_REQUEST['accion']);
 }
+if (isset($_REQUEST['btnEliminar']))
+{
+		$hCodigo	 = 	$_REQUEST['hCodigo'];
+		print "ELIMINAR".$hCodigo;
+		$tabla		= "tbldetpedido";
+		$condicion	= "idPedido = $hCodigo" ;
+		$bdConexion->eliminarDB($tabla,$condicion);
+	if($hCodigo > 0)
+	{
+		$tabla		= "tblpedido";
+		$condicion	= "idPedido =$hCodigo";
+		$bdConexion->eliminarDB($tabla,$condicion);	
+		unset($_REQUEST['accion']);
+	}
+}
 function mostrarDetalle($bdConexion,$hCodigo,$txtNombre,$txtCantidad,$txtFecha,$txtEntrega,$hora,$slcEditorial,$slcLibro)
 {
-   
-   
     $sqlMostrar = "SELECT 
                     l.imagen,
                     l.idLibro,

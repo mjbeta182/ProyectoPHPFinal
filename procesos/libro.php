@@ -45,19 +45,6 @@ if (isset($_REQUEST['btnGuardar']))
 	}
 }
 				
-		// if ( $_REQUEST['accion']== 'update')
-		// {
-		// 	$tabla		= "tblpersona";
-		// 	$campos		= "nombre = '$txtNombre',telefono = '$txtTelefono',direccion = '$txtDireccion'";
-		// 	$condicion	= "idPersona = $hCodigo";
-		// 	$bdConexion->actualizarDB($tabla,$campos,$condicion);
-		// 	print 'EDITANDO';
-		// 	$tabla		= "tblusuario";
-		// 	$campos		= "idTipoUsuario  = $slcTipoUsuario, email = '$txtEmail', contrasena = '$txtContrasena'";
-		// 	$condicion	= "idPersona= $hCodigo";
-		// 	$bdConexion->actualizarDB($tabla,$campos,$condicion);
-		// }
-
 if (isset($_REQUEST['accion']) and $_REQUEST['accion']=='editar')
 {
     $acciones	= 'update';
@@ -65,7 +52,6 @@ if (isset($_REQUEST['accion']) and $_REQUEST['accion']=='editar')
 if (isset($_REQUEST['accion']) and $_REQUEST['accion']=='eliminar')
 {
 		$hCodigo	 = 	$_REQUEST['hCodigo'];
-		print "ELIMINAR".$hCodigo;
 		$tabla		= "tbldetlibroautor";
 		$condicion	= "idLibro = $hCodigo" ;
 		$bdConexion->eliminarDB($tabla,$condicion);
@@ -73,14 +59,12 @@ if (isset($_REQUEST['accion']) and $_REQUEST['accion']=='eliminar')
 	{
 		$tabla		= "tbllibro";
 		$condicion	= "idLibro =$hCodigo";
-		$bdConexion->eliminarDB($tabla,$condicion);	
-		unset($_REQUEST['accion']);
+		$bdConexion->eliminarDB($tabla,$condicion);
 	}
 }
 if (isset($_REQUEST['accion']) and $_REQUEST['accion']=='remove')
 {
 		$idAutor	 = 	$_REQUEST['idautor'];
-		print $idAutor;
 		$tabla		= "tbldetlibroautor";
 		$condicion	= "idAutor = ".$idAutor ;
 		$bdConexion->eliminarDB($tabla,$condicion);

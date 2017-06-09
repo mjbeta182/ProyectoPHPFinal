@@ -30,7 +30,7 @@ $PantallaCliente->barraMenu($num);
 			<img class='image' style="width: 100%;" src="../imagenes/bg2.jpg">
 			<div class='overlay'>
 			<div class='text '>
-    			<p ><?=$usuario?></p>
+                            <p><?=$usuario?></p>
                         </div> 
  
    			</div>
