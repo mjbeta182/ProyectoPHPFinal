@@ -8,20 +8,18 @@ if ((isset($_SESSION['usuario'])) && (isset($_SESSION['persona'])) && (isset($_S
   $idusuario = $_SESSION['id'];
   $usuario = $_SESSION['persona'];
   $dir = 'formularios/perfil.php';
-  print 'sesion exitosa';
-  print $usuario;
+  $num = $_SESSION['administrador'];
 }else{
-  print 'fail la sesion';
   $usuario = 'Acceder Registrarse';
   $dir = 'index.php';
 }
 include('../plantilla/plantillaMantenimiento.php');
 include('../procesos/pedido.php');
-$titulo = 'Libros';
+$titulo = 'Pedido';
 $puntos = '../';
 $PantallaCliente = new PantallaMantenimiento($titulo,$puntos,$usuario,$dir);
 $PantallaCliente->header();
-$PantallaCliente->barraMenu();
+$PantallaCliente->barraMenu($num);
 date_default_timezone_set("America/El_Salvador"); 
 ?>
 <!--///////////FORMULARIO DE LOGIN Y REGISTRO////////////-->
@@ -48,19 +46,19 @@ date_default_timezone_set("America/El_Salvador");
             <div class="input-group">
               <span class="input-group-addon"><i class="  fa fa-edit"></i></span>
               <input type="text" class="form-control" id="btnCraer" name="txtNombre" placeholder="" value="<?=$usuario?>" required="true">
-              <input type="text" class="form-control" id="txtidusuario" name="txtidusuario" value="<?=$idusuario?>">
+              <input type="hidden" class="form-control" id="txtidusuario" name="txtidusuario" value="<?=$idusuario?>">
             </div>
             <br>
               <label class="sr-only" for="user">Hora:</label>
             <div class="input-group">
-              <span class="input-group-addon"><i class="  fa fa-edit"></i></span>
+              <span class="input-group-addon"><i class=" fa fa-clock-o"></i></span>
               <input type="text" class="form-control" id="txtHora" name="txtHora" placeholder="Hora" value="<?php  $time = time(); echo date("h:i:s", $time) ?>" required="true">
             </div>
               <br>
-              <input type="text" class="form-control" id="txtEntrega" name="txtEntrega" placeholder="entrega" value="<?= date("2017-06-30"); ?>" required="true">   
+              <input type="hidden" class="form-control" id="txtEntrega" name="txtEntrega" placeholder="entrega" value="<?= date("2017-06-30"); ?>" required="true">   
             <br>
-            <label class="sr-only" for="user">Agregar Editorial</label>
-            <div class="input-group" >
+            <label class="sr-only" for="user"  >Agregar Editorial</label>
+            <div class="input-group"style="width:100%;" >
               <?php
                 $bdConexion->llenarSelect("slcEditorial","SELECT * FROM tblEditorial ",
                   $slcEditorial);
@@ -94,6 +92,7 @@ date_default_timezone_set("America/El_Salvador");
         </div><!--fin de col-md-4-->
             <div class="col-md-6">  
              <button type="submit" class="btn btn-warning" style="margin-top: 10%;" onclick="javascript:frmImprimir(url);">Imprimir Reporte</button>
+             <button type="submit" class="btn btn-danger pull-right fa fa-times" title="Eliminar Pedido" style="margin-top: 10%;" ></button>
             <table border="1" class="tabla" style="font-size:12px;">
               <?php mostrarDetalle($bdConexion,$hCodigo,$txtNombre,$txtCantidad,$txtFecha,$txtEntrega,$hora,$slcEditorial,$slcLibro); ?>
             </table>

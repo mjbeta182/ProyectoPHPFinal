@@ -9,10 +9,8 @@ if ((isset($_SESSION['usuario'])) && (isset($_SESSION['persona'])) && (isset($_S
   $idusuario = $_SESSION['id'];
   $usuario = $_SESSION['persona'];
   $dir = 'formularios/perfil.php';
-  print 'sesion exitosa';
-  print $usuario;
+$num = $_SESSION['administrador'];
 }else{
-  print 'fail la sesion';
   $usuario = 'Acceder Registrarse';
   $dir = 'index.php';
 }
@@ -22,7 +20,7 @@ $titulo = 'Editorial';
 $puntos = '../';
 $PantallaCliente = new PantallaMantenimiento($titulo,$puntos,$usuario,$dir);
 $PantallaCliente->header();
-$PantallaCliente->barraMenu();
+$PantallaCliente->barraMenu($num);
 ?>
     
 <div class="container-fluid">
