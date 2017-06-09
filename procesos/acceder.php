@@ -21,7 +21,6 @@ if (isset($_REQUEST['btnIngresar']))
 {
                 $_SESSION['persona']  = 'Acceder Registrarse';
                 $idTipo = 0;
-		print "CONSULTANDO DATOS DE USUARIO";
 		 $sqlConsulta = "SELECT * FROM tblusuario 
 		 WHERE email ='$txtEmail' AND contrasena='$txtClave'";
 		  $resultado =  $bdConexion->ejecutarSql($sqlConsulta);
@@ -32,7 +31,6 @@ if (isset($_REQUEST['btnIngresar']))
                             $idPersona = $fila['idPersona'];
                             $_SESSION['usuario'] = $txtEmail;
                             $_SESSION['id'] = $idUsuario;
-                            print $idTipo;
                     }
                     if ($idTipo == 0 )
                     {
@@ -50,14 +48,18 @@ if (isset($_REQUEST['btnIngresar']))
 			}
                     }
                  
-                if($idTipo ==1 || $idTipo ==2){
-                   header("location:../formularios/frmLibros.php");
+                if($idTipo ==2){
+                   header("location:../formularios/frmMenuEmpleado.php");
                 }
 		else if($idTipo == 3)
 		{
 			 
 			header("location:../index.php");
-		}else
+		}else if ($idTipo ==1)
+                {
+                    header("location:../formularios/frmMenuAdministrador.php");
+                }
+                else
                 {
                     print 'id tipo no existe';
                 }

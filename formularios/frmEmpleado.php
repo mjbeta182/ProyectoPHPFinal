@@ -1,7 +1,7 @@
 <!DOCTYPE>
 <html lang="es">
-    <meta charset="UTF-8">
-    <script>url="rptEmpleados.php"</script>
+<meta charset="UTF-8">
+<script>url="rptEmpleados.php"</script>
 <?php
 session_start();
 if ((isset($_SESSION['usuario'])) && (isset($_SESSION['persona'])) && (isset($_SESSION['id'])))
@@ -9,10 +9,8 @@ if ((isset($_SESSION['usuario'])) && (isset($_SESSION['persona'])) && (isset($_S
   $idusuario = $_SESSION['id'];
   $usuario = $_SESSION['persona'];
   $dir = 'formularios/perfil.php';
-  print 'sesion exitosa';
-  print $usuario;
+$num = $_SESSION['administrador'];
 }else{
-  print 'fail la sesion';
   $usuario = 'Acceder Registrarse';
   $dir = 'index.php';
 }
@@ -22,7 +20,7 @@ $titulo = 'Empleado';
 $puntos = '../';
 $PantallaCliente = new PantallaMantenimiento($titulo,$puntos,$usuario,$dir);
 $PantallaCliente->header();
-$PantallaCliente->barraMenu();
+$PantallaCliente->barraMenu($num);
 ?>
 <!--///////////FORMULARIO DE LOGIN Y REGISTRO////////////-->
 <div class="container-fluid">
@@ -88,7 +86,6 @@ $PantallaCliente->barraMenu();
             <button id="btnGuardar" name="btnGuardar" type="submit" class="btn btn-warning" onclick='return actualizarItem();'>Guardar</button>
             <input type="hidden" id="accion" name="accion" value="<?=$accion?>" >
             <button type="submit" class="btn btn-warning" onclick="javascript:frmImprimir(url);">Imprimir Reporte</button>
-            <button type="submit" class="btn btn-warning">Cancelar</button>
           </form>
         </div><!--fin de col-md-4-->
         <div class="col-md-8">  
