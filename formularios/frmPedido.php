@@ -1,6 +1,6 @@
 <!DOCTYPE>
 <html lang="en">
-    <script>url="rptPedidosEmpleados.php"</script>
+    <script>url="rptPedidoEmpleados.php"</script>
 <?php
 session_start();
 if ((isset($_SESSION['usuario'])) && (isset($_SESSION['persona'])) && (isset($_SESSION['id'])))
@@ -29,7 +29,14 @@ date_default_timezone_set("America/El_Salvador");
           <h3 class=" text-center text-muted" id="heading">
         <strong>PEDIDO</strong>
       </h3>
-          <form role="form" class="formulario" action="#" method="post" enctype="multipart/form-data">
+                     <form role="form" class="formulario" action="#" method="post" enctype="multipart/form-data" style="text-align: center;">
+          
+          <div class="input-group">
+               <button type="submit" class="btn btn-warning fa fa-new" style="margin-top: 10%;"  onclick='LimpiarPedido();'>Nuevo Pedido</button>
+              <button type="submit" class="btn btn-danger fa fa-times" title="Eliminar Pedido" name="btnEliminar" style="margin-top: 10%;"  >Cancelar Pedido</button>
+              <button type="submit" class="btn btn-warning fa fa-print" style="margin-top: 10%;"  onclick="javascript:frmImprimir(url);">Imprimir Reporte</button>
+          </div>
+            <br>    
           <label class="sr-only" for="user">Codigo</label>
             <div class="input-group">
               <span class="input-group-addon"><i class="  fa fa-lock"></i></span>
@@ -45,17 +52,17 @@ date_default_timezone_set("America/El_Salvador");
              <label class="sr-only" for="user">Realiza el pedido:</label>
             <div class="input-group">
               <span class="input-group-addon"><i class="  fa fa-edit"></i></span>
-              <input type="text" class="form-control" id="btnCraer" name="txtNombre" placeholder="" value="<?=$usuario?>" required="true" readonly="true">
-              <input type="hidden" class="form-control" id="txtidusuario" name="txtidusuario" value="<?=$idusuario?>" readonly="true">
+              <input type="text" class="form-control" id="txtNombre" name="txtNombre" placeholder="" value="<?=$usuario?>" required="true">
+              <input type="hidden" class="form-control" id="txtidusuario" name="txtidusuario" value="<?=$idusuario?>">
             </div>
             <br>
               <label class="sr-only" for="user">Hora:</label>
             <div class="input-group">
               <span class="input-group-addon"><i class=" fa fa-clock-o"></i></span>
-              <input type="text" class="form-control" id="txtHora" name="txtHora" placeholder="Hora" value="<?php  $time = time(); echo date("h:i:s", $time) ?>" required="true" readonly="true">
+              <input type="text" class="form-control" id="txtHora" name="txtHora" placeholder="Hora" value="<?php  $time = time(); echo date("h:i:s", $time) ?>" required="true">
             </div>
               <br>
-              <input type="hidden" class="form-control" id="txtEntrega" name="txtEntrega" placeholder="entrega" value="<?= date("2017-06-30"); ?>" required="true" readonly="true">   
+              <input type="hidden" class="form-control" id="txtEntrega" name="txtEntrega" placeholder="entrega" value="<?= date("2017-06-30"); ?>" required="true">   
             <br>
             <label class="sr-only" for="user"  >Agregar Editorial</label>
             <div class="input-group"style="width:100%;" >
@@ -91,8 +98,6 @@ date_default_timezone_set("America/El_Salvador");
           </form>    
         </div><!--fin de col-md-4-->
             <div class="col-md-6">  
-             <button type="submit" class="btn btn-warning" style="margin-top: 10%;" onclick="javascript:frmImprimir(url);">Imprimir Reporte</button>
-             <button type="submit" class="btn btn-danger pull-right fa fa-times" title="Eliminar Pedido" style="margin-top: 10%;" ></button>
             <table border="1" class="tabla" style="font-size:12px;">
               <?php mostrarDetalle($bdConexion,$hCodigo,$txtNombre,$txtCantidad,$txtFecha,$txtEntrega,$hora,$slcEditorial,$slcLibro); ?>
             </table>
